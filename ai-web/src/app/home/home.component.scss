@@ -14,7 +14,6 @@
 
       .title {
         padding: 7px 10px;
-        color: $white;
 
         span {
           text-transform: capitalize;
@@ -32,32 +31,16 @@
           cursor: pointer;
 
           span {
-            color: white;
             font-size: 14px;
           }
 
           .nav-link {
-            border-bottom: none !important;
 
-            &:hover {
-              background-color: $gray-500 !important;
-              box-shadow: 0 0 0 $gray-500;
-              opacity: 0.8;
-
-              span {
-                color: $teal !important;
-              }
-            }
           }
         }
 
         .nav-item.active {
-          background-color: $light !important;
-          box-shadow: 0 0 0 white;
 
-          span {
-            color: $teal !important;
-          }
         }
       }
     }
