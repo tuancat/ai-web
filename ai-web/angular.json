@@ -28,9 +28,23 @@
               "src/assets"
             ],
             "styles": [
+              "src/assets/fonts/default-font.css",
+              "src/assets/lib/bootstrap/css/bootstrap.min.css",
+              "src/assets/lib/fontawesome/css/all.css",
+              "src/assets/lib/material-icon/material-icon.css",
+              "src/assets/lib/shard-dashboard/styles/shards-dashboards.css",
+              "src/assets/lib/shard-dashboard/styles/extras.1.1.0.min.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/lib/bootstrap/js/jquery-3.3.1.min.js",
+              "src/assets/lib/bootstrap/js/popper.min.js",
+              "src/assets/lib/bootstrap/js/bootstrap.js",
+              "src/assets/lib/shard-dashboard/scripts/chart.min.js",
+              "src/assets/lib/shard-ui/js/shards.min.js",
+              "src/assets/lib/shard-dashboard/scripts/jquery.sharrre.min.js",
+              "src/assets/lib/shard-dashboard/scripts/shards-dashboards.1.1.0.js"
+            ]
           },
           "configurations": {
             "production": {
