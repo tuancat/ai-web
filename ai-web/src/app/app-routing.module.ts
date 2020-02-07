@@ -12,6 +12,10 @@ export const routes: Routes = [
     path: 'hoc-phi',
     loadChildren: './module/hoc-phi/hp.module#HpModule',
   },
+  {
+    path: 'user',
+    loadChildren: './module/user/user.module#UserModule',
+  },
   { path: '**', redirectTo: '/home' }
 ];
 
