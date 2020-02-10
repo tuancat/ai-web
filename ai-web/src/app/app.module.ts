@@ -8,11 +8,15 @@ import {RouterModule} from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSliderModule} from '@angular/material';
+import { RegisterComponent } from './module/register/register.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {AuthService} from './services/auth.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -20,9 +24,11 @@ import {MatSliderModule} from '@angular/material';
     AppRoutingModule,
     RouterModule,
     MatSliderModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
