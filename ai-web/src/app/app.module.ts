@@ -11,12 +11,14 @@ import {MatSliderModule} from '@angular/material';
 import { RegisterComponent } from './module/register/register.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthService} from './services/auth.service';
+import {LoginComponent} from './module/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

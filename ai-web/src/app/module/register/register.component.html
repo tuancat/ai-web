@@ -8,15 +8,28 @@
     </div>
 
     <!-- Login Form -->
-    <form [formGroup]="registerForm" class="fadeInDown">
-      <input type="email" id="login" class="fadeIn second" name="login" placeholder="login">
-      <input type="passwrd" id="password" class="fadeIn third" name="login" placeholder="password">
+    <form [formGroup]="registerForm" class="fadeInDown" (ngSubmit)="creatUser()">
+      <input type="email" class="fadeIn second" name="email" id="email" placeholder="Email" formControlName="email">
+      <input type="password" class="fadeIn third" name="password" id="password" formControlName="password"
+             placeholder="Mật khẩu">
+      <div class="error__content">
+        <ng-container *ngFor="let validation of validationMessage.email">
+          <label class="mat-error"
+                 *ngIf="registerForm.get('email').hasError(validation.type)">{{validation.message}}</label>
+        </ng-container>
+        <ng-container *ngFor="let validation of validationMessage.password">
+          <label class="mat-error"
+                 *ngIf="registerForm.get('password').hasError(validation.type)">{{validation.message}}</label>
+        </ng-container>
+
+      </div>
+
       <input type="submit" class="fadeIn fourth" value="Lưu lại">
     </form>
 
     <!-- Remind Passowrd -->
     <div id="formFooter">
-      <a class="underlineHover" href="#">Forgot Password?</a>
+      <a class="underlineHover" href="#">Quên mật khẩu</a>
     </div>
 
   </div>
