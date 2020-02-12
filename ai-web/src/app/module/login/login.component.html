@@ -6,9 +6,11 @@
     <div class="fadeIn first">
       <h3> Đăng nhập hệ thống</h3>
     </div>
-    <form class="fadeInDown">
+    <form class="fadeInDown" [formGroup]="loginForm" (ngSubmit)="loginSubmit()">
       <input type="email" class="fadeIn second" name="email" id="email" placeholder="Email" formControlName="email">
       <input type="password" class="fadeIn third" name="password" id="password" formControlName="password"/>
+
+      <input type="submit" class="fadeIn fourth" value="Đăng nhập">
     </form>
   </div>
 </div>

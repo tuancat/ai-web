@@ -26,4 +26,7 @@ export class AuthService {
       });
     });
   }
+  public static getCurrUser(): firebase.User {
+    return firebase.auth().currentUser;
+  }
 }
