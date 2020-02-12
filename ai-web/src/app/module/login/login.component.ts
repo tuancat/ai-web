@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../services/auth.service';
 import {UserModel} from '../../model/user.model';
@@ -19,12 +19,14 @@ export class LoginComponent implements OnInit {
       {type: 'required', message: 'Nhập mật khẩu'},
     ]
   };
+
   constructor(public authService: AuthService) {
     this.createForm();
   }
 
   ngOnInit() {
   }
+
   createForm() {
     this.loginForm = new FormGroup({
       email: new FormControl('', [
@@ -33,6 +35,7 @@ export class LoginComponent implements OnInit {
       password: new FormControl('', Validators.required),
     });
   }
+
   loginSubmit() {
     const email: string = this.loginForm.get('email').value;
     const password: string = this.loginForm.get('password').value;
@@ -40,9 +43,10 @@ export class LoginComponent implements OnInit {
     user.email = email;
     user.password = password;
     this.authService.doLogin(user).then(result => {
-      console.log('result: ' + result.toString());
-      let currUser = AuthService.getCurrUser();
-      console.log('currUser: ' + currUser.email);
+
+      this.authService.getCurrentUser().then(currUser => {
+        console.log('result: ' + currUser.uid);
+      });
     }, err => {
       console.log('err: ' + err);
     });
