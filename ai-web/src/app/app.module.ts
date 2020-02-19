@@ -12,6 +12,7 @@ import { RegisterComponent } from './module/register/register.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthService} from './services/auth.service';
 import {LoginComponent} from './module/login/login.component';
+import {Authguard} from './services/authguard';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import {LoginComponent} from './module/login/login.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, Authguard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

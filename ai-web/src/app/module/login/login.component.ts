@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../services/auth.service';
 import {UserModel} from '../../model/user.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,7 @@ export class LoginComponent implements OnInit {
     ]
   };
 
-  constructor(public authService: AuthService) {
+  constructor(public authService: AuthService, public router: Router) {
     this.createForm();
   }
 
@@ -46,9 +47,11 @@ export class LoginComponent implements OnInit {
 
       this.authService.getCurrentUser().then(currUser => {
         console.log('result: ' + currUser.uid);
+        this.router.navigate(['/home']);
       });
     }, err => {
       console.log('err: ' + err);
+      // this.router.navigate(['/login']);
     });
   }
 }

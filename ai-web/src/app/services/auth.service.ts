@@ -47,9 +47,11 @@ export class AuthService {
   canActive(): Promise<boolean> {
     return new Promise<boolean>(resolve => {
       this.getCurrentUser().then(user => {
-          resolve
+          resolve(true);
+          this.router.navigate(['/home']);
       }, err => {
-
+        resolve(false);
+        this.router.navigate(['/login']);
       });
     });
   }

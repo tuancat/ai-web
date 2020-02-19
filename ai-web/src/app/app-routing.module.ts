@@ -4,11 +4,12 @@ import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import {RegisterComponent} from './module/register/register.component';
 import {LoginComponent} from './module/login/login.component';
+import {Authguard} from './services/authguard';
 
 export const routes: Routes = [
   {
     path: 'home',
-    component: HomeComponent
+    component: HomeComponent, canActivate: [Authguard]
   },
   {
     path: 'register', component: RegisterComponent,
@@ -21,12 +22,14 @@ export const routes: Routes = [
   {
     path: 'hoc-phi',
     loadChildren: './module/hoc-phi/hp.module#HpModule',
+    canActivate: [Authguard]
   },
   {
     path: 'user',
     loadChildren: './module/user/user.module#UserModule',
+    canActivate: [Authguard]
   },
-  { path: '**', redirectTo: '/home' }
+  { path: '**', redirectTo: '/login' }
 ];
 
 @NgModule({
