@@ -47,6 +47,7 @@ export class LoginComponent implements OnInit {
 
       this.authService.getCurrentUser().then(currUser => {
         console.log('result: ' + currUser.uid);
+        localStorage.setItem('uid', currUser.uid);
         this.router.navigate(['/home']);
       });
     }, err => {

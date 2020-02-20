@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Page} from '../model/Page';
+import {LeftSidemenuComponent} from '../module/left-sidemenu/left-sidemenu.component';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(public leftMenuComponent: LeftSidemenuComponent) {
+  }
 
   ngOnInit() {
   }

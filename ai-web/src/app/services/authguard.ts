@@ -1,4 +1,4 @@
-import {CanActivate, Router} from '@angular/router';
+import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
 import {Injectable} from '@angular/core';
 import {AuthService} from './auth.service';
 
@@ -7,25 +7,14 @@ export class Authguard implements CanActivate {
   constructor(public authService: AuthService, public router: Router) {
   }
 
-  canActivate(): boolean {
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
 
-    let request = this.authService.getCurrentUser().then(user => {
+    const uid = localStorage.getItem('uid');
+    if (uid === null || uid === '') {
+      this.router.navigate(['/login']);
+      return false;
+    } else {
       return true;
-    }, error => {
-
-    });
-    this.router.navigate(['/login']);
-    return false;
-
-    // return new Promise<boolean>(resolve => {
-    //   this.authService.getCurrentUser().then(user => {
-    //     resolve(true);
-    //     // this.router.navigate(['/home']);
-    //   }, error => {
-    //
-    //     // resolve(false);
-    //     // this.router.navigate(['/login']);
-    //   });
-    // });
+    }
   }
 }

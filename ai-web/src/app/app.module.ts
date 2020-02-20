@@ -13,13 +13,15 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthService} from './services/auth.service';
 import {LoginComponent} from './module/login/login.component';
 import {Authguard} from './services/authguard';
+import {UserModule} from './module/user/user.module';
+import {LeftSidemenuComponent} from './module/left-sidemenu/left-sidemenu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,9 +31,10 @@ import {Authguard} from './services/authguard';
     MatSliderModule,
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    UserModule
   ],
-  providers: [AuthService, Authguard],
+  providers: [AuthService, Authguard, LeftSidemenuComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
