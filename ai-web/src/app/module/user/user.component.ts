@@ -11,12 +11,24 @@ export class UserComponent implements OnInit {
   constructor(public userService: UserService) {
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    console.log('reload data');
+    await this.reloadData();
   }
 
   async reloadData() {
     let request = this.userService.getUsers().toPromise();
     let respone = await Promise.resolve(request);
+    this.userService.getUsers().subscribe(value => {
+
+      console.log('res:' + value.length);
+    })
+    // respone.forEach(value => {
+    //
+    //   console.log('res:' + value.payload.doc.id);
+    // })
+
+    // if (respone.)
     // if (respone.)
   }
 }
